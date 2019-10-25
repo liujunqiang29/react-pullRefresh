@@ -1,0 +1,44 @@
+.pullRefresh-loading-wrap {
+  height: 100px;
+  line-height: 100px;
+  margin-top: -100px;
+  text-align: center;
+  position: relative;
+  .pullRefresh-loading-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+  }
+  .pullRefresh-xiala-icon{
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+  }
+}
+.pullRefresh{
+  .pullRefresh-hint {
+    text-align: center;
+    padding: 13px;
+    >svg{
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+    >span{
+      vertical-align: middle;
+    }
+  }
+}
+.pullRefresh-height-full-overflow-hidden{
+  height: 100%;
+  overflow: hidden;
+}
+.pullRefresh-height-full-overflow-scroll{
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
