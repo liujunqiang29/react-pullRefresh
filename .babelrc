@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "polyfill":false
+      }
+    ]
+  ],
+  "presets": [
+    "react-app"
+  ],
+  "env": {
+    "development":{
+      "presets":["react-hmre"]
+    }
+  }
+}

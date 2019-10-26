@@ -1,0 +1,24 @@
+@import "~scss/base";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: $baseFontColor;
+  font-family: -apple-system,Helvetica,sans-serif;
+}
+img{
+  width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+li{
+  list-style:none;
+}
+html,body{
+  max-width: 600px;
+  margin: auto;
+  background-color: #f4f4f4;
+}
