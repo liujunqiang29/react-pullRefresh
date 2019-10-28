@@ -46,7 +46,7 @@ export default class extends Component {
                                 this.setState({
                                     datalist :[...datalist,1,2,3,4,5,6,7,8,9,10]
                                 },()=>{
-                                    if(datalist.length>=10){
+                                    if(datalist.length>=20){
                                         f()
                                     }else{
                                         r()
@@ -88,6 +88,20 @@ export default class extends Component {
                             左边儿右边儿摇摇头
                             <br/>
                             两个食指就像两个钻天猴
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
+                            <br/>
+                            指向闪耀的灯球
                             <br/>
                             指向闪耀的灯球
                             <br/>
