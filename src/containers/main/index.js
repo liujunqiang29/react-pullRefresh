@@ -38,7 +38,7 @@ export default class extends Component {
                                    datalist:[]
                                })
                                 f();
-                            },500)
+                            },400)
 
                         }}
                         onLoadMore={(r,f)=>{

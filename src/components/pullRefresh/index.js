@@ -66,23 +66,26 @@ export default class extends Component {
 
         })
         this.scrollElement.addEventListener('touchmove', (e) => {
-            this.moveSlider(e)
+             this.moveSlider(e)
 
         })
         if (onPull) {
             this.scrollElement.addEventListener('touchend', () => {
-                const {marginTop} = this.state;
+                const {marginTop, loading} = this.state;
                 const {onPull} = this.props;
                 this.pullElement.style.transition = 'all 0.4s';
                 if (marginTop === 100) {
-                    this.setState({loading: true});
-                    onPull(() => {
-                        this.setState({
-                            marginTop: 0,
-                            loading: false,
-                            noMore: false
+                    if (!loading) {
+                        this.setState({loading: true});
+                        onPull(() => {
+                            this.setState({
+                                marginTop: 0,
+                                loading: false,
+                                noMore: false
+                            })
                         })
-                    })
+                    }
+
                 } else {
                     this.setState({
                         marginTop: 0
@@ -91,10 +94,14 @@ export default class extends Component {
 
             });
             this.scrollElement.addEventListener('touchcancel', () => {
+                const {loading} = this.state;
                 this.pullElement.style.transition = 'all 0.2s';
-                this.setState({
-                    marginTop: 0
-                })
+                if (!loading) {
+                    this.setState({
+                        marginTop: 0
+                    })
+                }
+
             })
         }
 
@@ -133,6 +140,7 @@ export default class extends Component {
     }
     slider = (e, scrollEle) => {
         const {loadMoreBottom, needLoadMore, onPull} = this.props;
+        const {loading}=this.state;
         let newTouchY = e.touches[0].pageY;
         let newTouchX = e.touches[0].pageX;
         if (this.isTouchY === undefined) {
@@ -142,8 +150,8 @@ export default class extends Component {
             this.isUpPull = newTouchY - this.start.Y < 0
         }
         if (this.isTouchY && onPull) {
-            if (scrollEle.scrollTop < 1) {
-                if ((newTouchY - this.start.Y) > 0&&!this.isUpPull&&(this.start.scrollTop<=0)) {
+            if (scrollEle.scrollTop < 1 && (this.start.scrollTop <= 0)) {
+                if ((newTouchY - this.start.Y) > 0 && !this.isUpPull) {
                     this.pullElement.style.transition = 'none';
                     e.preventDefault();
                     let marginTop = newTouchY - this.start.Y - this.start.scrollTop;
@@ -153,10 +161,12 @@ export default class extends Component {
                     if (marginTop < 0) {
                         marginTop = 0;
                     }
+                    if(loading){
+                        marginTop = 100;
+                    }
                     this.setState({
                         marginTop: marginTop
                     })
-
 
                 }
             }
