@@ -8,7 +8,7 @@ export default class extends Component {
     constructor(props) {
         super(props);
         this.state={
-            datalist:[1,2,3,5,6,7,8,9,9,0,12,3,4,5,6,7,8]
+            datalist:[]
         }
     }
     componentDidMount() {
@@ -34,7 +34,9 @@ export default class extends Component {
                         needLoadMore={true}
                         onPull={(f)=>{
                             setTimeout(()=>{
-
+                               this.setState({
+                                   datalist:[]
+                               })
                                 f();
                             },500)
 
@@ -44,7 +46,7 @@ export default class extends Component {
                                 this.setState({
                                     datalist :[...datalist,1,2,3,4,5,6,7,8,9,10]
                                 },()=>{
-                                    if(datalist.length>=40){
+                                    if(datalist.length>=10){
                                         f()
                                     }else{
                                         r()

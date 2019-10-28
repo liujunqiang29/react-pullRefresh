@@ -78,7 +78,8 @@ export default class extends Component {
                     onPull(() => {
                         this.setState({
                             marginTop: 0,
-                            loading: false
+                            loading: false,
+                            noMore: false
                         })
                     })
                 } else {
