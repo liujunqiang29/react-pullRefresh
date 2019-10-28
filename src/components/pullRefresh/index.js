@@ -60,7 +60,6 @@ export default class extends Component {
     componentDidMount() {
         const {onPull} = this.props;
         this.scrollElement.addEventListener('touchstart', (e) => {
-            this.isUpPull = undefined;  //初始是否手指上滑
             this.isTouchY = undefined;  //初始是否是scrollY操作
             this.start_slider(e)
 
@@ -136,9 +135,6 @@ export default class extends Component {
         let newTouchX = e.touches[0].pageX;
         if (this.isTouchY === undefined) {
             this.isTouchY = (Math.abs(newTouchY - this.start.Y)) - (Math.abs(newTouchX - this.start.X)) > 0
-        }
-        if (this.isUpPull === undefined) {
-            this.isUpPull = newTouchY - this.start.Y < 0
         }
         if (this.isTouchY && onPull) {
             if (scrollEle.scrollTop < 1) {

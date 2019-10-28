@@ -29,7 +29,7 @@ export default class extends Component {
                 </h1>
                 <div style={{textAlign:'center',lineHeight:'30px',height:'500px'}}>
                     <PullRefresh
-                        windowScroll={true}
+                        windowScroll={false}
                         loadMoreBottom={1000}
                         needLoadMore={true}
                         onPull={(f)=>{
