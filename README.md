@@ -1,7 +1,10 @@
 # react-pullRefresh
 react下拉刷新，上滑加载组件，解决了微信等浏览器卡顿等问题，希望经过市场的验证
 
-如何使用
+##### 如何使用
+##### npm install
+##### npm start 
+打开浏览器 http://localhost:8080
 下面展示了几个常用属性的使用，其他属性使用请参考组件
 ```javascript
 <PullRefresh
